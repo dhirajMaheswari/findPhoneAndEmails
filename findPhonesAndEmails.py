@@ -1,5 +1,5 @@
 '''this code makes use of the command line to find emails and/or phones from supplied text file
-	or text
+	or text using regular expressions.
 '''
 
 import argparse, re
@@ -10,9 +10,9 @@ def extractEmailAddressesOrPhones(text, kKhojne = "email"):
         import re '''
 
     if kKhojne.lower() == "email":
-    	Pattern = re.compile(r'[a-zA-Z0-9_.]+@[a-zA-Z0-9.]+[a-zA-Z]+')
+    	Pattern = re.compile(r'[a-zA-Z0-9_.]+@[a-zA-Z0-9.]+[a-zA-Z]+') # pattern for email
     elif kKhojne.lower() == "phone":
-    	Pattern = re.compile(r'(\d{3}-\d{3}-\d{4})|(\d{10})|(\d{3}\.\d{3}\.\d{4})')
+    	Pattern = re.compile(r'(\d{3}-\d{3}-\d{4})|(\d{10})|(\d{3}\.\d{3}\.\d{4})') # pattern for phone
  
     emailPhoneLists = Pattern.findall(text)
     return emailPhoneLists
